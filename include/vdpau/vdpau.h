@@ -812,7 +812,7 @@ extern "C" {
  */
 typedef int VdpBool;
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup misc_types Miscellaneous Types
@@ -1183,7 +1183,7 @@ typedef struct {
     float alpha;
 } VdpColor;
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup error_handling Error Handling
@@ -1342,7 +1342,7 @@ typedef char const * VdpGetErrorString(
     VdpStatus status
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup versioning Versioning
@@ -1413,7 +1413,7 @@ typedef VdpStatus VdpGetInformationString(
     char const * * information_string
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpDevice VdpDevice; Primary API object
@@ -1443,7 +1443,7 @@ typedef VdpStatus VdpDeviceDestroy(
     VdpDevice device
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpCSCMatrix VdpCSCMatrix; CSC Matrix Manipulation
@@ -1550,7 +1550,7 @@ typedef VdpStatus VdpGenerateCSCMatrix(
     VdpCSCMatrix *   csc_matrix
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpVideoSurface VdpVideoSurface; Video Surface object
@@ -1758,7 +1758,7 @@ typedef VdpStatus VdpVideoSurfacePutBitsYCbCr(
     uint32_t const *     source_pitches
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpOutputSurface VdpOutputSurface; Output Surface object
@@ -2063,7 +2063,7 @@ typedef VdpStatus VdpOutputSurfacePutBitsYCbCr(
     VdpCSCMatrix const * csc_matrix
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpBitmapSurface VdpBitmapSurface; Bitmap Surface object
@@ -2210,7 +2210,7 @@ typedef VdpStatus VdpBitmapSurfacePutBitsNative(
     VdpRect const *      destination_rect
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpOutputSurfaceRender VdpOutputSurface Rendering Functionality
@@ -2487,7 +2487,7 @@ typedef VdpStatus VdpOutputSurfaceRenderBitmapSurface(
     uint32_t                                 flags
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpDecoder VdpDecoder; Video Decoding object
@@ -3570,7 +3570,7 @@ typedef VdpStatus VdpDecoderRender(
     VdpBitstreamBuffer const * bitstream_buffers
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpVideoMixer VdpVideoMixer; Video Post-processing and Compositing object
@@ -4371,7 +4371,7 @@ typedef VdpStatus VdpVideoMixerRender(
     VdpLayer const *              layers
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup VdpPresentationQueue VdpPresentationQueue; Video presentation (display) object
@@ -4614,7 +4614,7 @@ typedef VdpStatus VdpPresentationQueueQuerySurfaceStatus(
     VdpTime *                    first_presentation_time
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup display_preemption Display Preemption
@@ -4689,7 +4689,7 @@ typedef VdpStatus VdpPreemptionCallbackRegister(
     void *               context
 );
 
-/*@}*/
+/** @} */
 
 /**
  * \defgroup get_proc_address Entry Point Retrieval
@@ -4851,8 +4851,8 @@ typedef VdpStatus VdpGetProcAddress(
     void * *  function_pointer
 );
 
-/*@}*/
-/*@}*/
+/** @} */
+/** @} */
 
 /**
  * \defgroup api_winsys Window System Integration Layer
