@@ -3415,6 +3415,7 @@ typedef struct {
     uint8_t lists_modification_present_flag;
     uint8_t log2_parallel_merge_level_minus2;
     uint8_t slice_segment_header_extension_present_flag;
+    /** @} */
 
     /** \name HEVC Slice Segment Header
      *
