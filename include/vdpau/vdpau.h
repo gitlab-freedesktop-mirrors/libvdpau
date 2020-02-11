@@ -897,6 +897,65 @@ typedef uint32_t VdpChromaType;
  *  interoped with OpenGL if the matching field/frame structure is
  *  specified in the OpenGL API */
 #define VDP_CHROMA_TYPE_444_FRAME ((VdpChromaType)8)
+/** \hideinitializer \brief 4:2:0 chroma format. Undefined field/frame based
+ *  Video surfaces allocated with this chroma type have undefined
+ *  field/frame structure. The implementation is free to internally morph
+ *  the surface between frame/field as required by VdpVideoDecoder operation.
+ *  Interop with OpenGL allows registration of these surfaces for either
+ *  field- or frame-based interop. But, an implicit field/frame structure
+ *  conversion may be performed.
+ */
+#define VDP_CHROMA_TYPE_420_16 ((VdpChromaType)9)
+/** \hideinitializer \brief 4:2:2 chroma format. Undefined field/frame based
+ *  Video surfaces allocated with this chroma type have undefined
+ *  field/frame structure. The implementation is free to internally morph
+ *  the surface between frame/field as required by VdpVideoDecoder operation.
+ *  Interop with OpenGL allows registration of these surfaces for either
+ *  field- or frame-based interop. But, an implicit field/frame structure
+ *  conversion may be performed.
+ */
+#define VDP_CHROMA_TYPE_422_16 ((VdpChromaType)10)
+/** \hideinitializer \brief 4:4:4 chroma format. Undefined field/frame based
+ *  Video surfaces allocated with this chroma type have undefined
+ *  field/frame structure. The implementation is free to internally morph
+ *  the surface between frame/field as required by VdpVideoDecoder operation.
+ *  Interop with OpenGL allows registration of these surfaces for either
+ *  field- or frame-based interop. But, an implicit field/frame structure
+ *  conversion may be performed.
+ */
+#define VDP_CHROMA_TYPE_444_16 ((VdpChromaType)11)
+
+/** \hideinitializer \brief 4:2:0 chroma format. Field based.
+ *  Video surfaces allocated with this chroma type can only be
+ *  interoped with OpenGL if the matching field/frame structure is
+ *  specified in the OpenGL API */
+#define VDP_CHROMA_TYPE_420_FIELD_16 ((VdpChromaType)12)
+/** \hideinitializer \brief 4:2:2 chroma format. Field based.
+ *  Video surfaces allocated with this chroma type can only be
+ *  interoped with OpenGL if the matching field/frame structure is
+ *  specified in the OpenGL API */
+#define VDP_CHROMA_TYPE_422_FIELD_16 ((VdpChromaType)13)
+/** \hideinitializer \brief 4:4:4 chroma format. Field based.
+ *  Video surfaces allocated with this chroma type can only be
+ *  interoped with OpenGL if the matching field/frame structure is
+ *  specified in the OpenGL API */
+#define VDP_CHROMA_TYPE_444_FIELD_16 ((VdpChromaType)14)
+
+/** \hideinitializer \brief 4:2:0 chroma format. Frame based.
+ *  Video surfaces allocated with this chroma type can only be
+ *  interoped with OpenGL if the matching field/frame structure is
+ *  specified in the OpenGL API */
+#define VDP_CHROMA_TYPE_420_FRAME_16 ((VdpChromaType)15)
+/** \hideinitializer \brief 4:2:2 chroma format. Frame based.
+ *  Video surfaces allocated with this chroma type can only be
+ *  interoped with OpenGL if the matching field/frame structure is
+ *  specified in the OpenGL API */
+#define VDP_CHROMA_TYPE_422_FRAME_16 ((VdpChromaType)16)
+/** \hideinitializer \brief 4:4:4 chroma format. Frame based.
+ *  Video surfaces allocated with this chroma type can only be
+ *  interoped with OpenGL if the matching field/frame structure is
+ *  specified in the OpenGL API */
+#define VDP_CHROMA_TYPE_444_FRAME_16 ((VdpChromaType)17)
 
 /**
  * \brief The set of all known YCbCr surface formats.
@@ -1009,6 +1068,50 @@ typedef uint32_t VdpYCbCrFormat;
  * Applications should access this data via a uint8_t pointer.
  */
 #define VDP_YCBCR_FORMAT_Y_U_V_444     ((VdpYCbCrFormat)7)
+/**
+ * \hideinitializer
+ * \brief The P010 surface format.
+ *
+ * This format has two planes, a Y plane and a UV plane.
+ *
+ * The Y plane is an array of two byte sized Y components.
+ * Applications should access this data via a uint16_t pointer.
+ *
+ * The UV plane is an array of interleaved two byte sized U and V
+ * components, in the order U, V, U, V. Applications should
+ * access this data via a uint8_t pointer.
+ *
+ * Note that the P010 surface format has an identical memory
+ * layout as the P016 surface format, with bits 0 through 5
+ * set to zero.
+ */
+#define VDP_YCBCR_FORMAT_P010           ((VdpYCbCrFormat)8)
+/**
+ * \hideinitializer
+ * \brief The P016 surface format.
+ *
+ * This format has two planes, a Y plane and a UV plane.
+ *
+ * The Y plane is an array of two byte sized Y components.
+ * Applications should access this data via a uint16_t pointer.
+ *
+ * The UV plane is an array of interleaved two byte sized U and V
+ * components, in the order U, V, U, V. Applications should
+ * access this data via a uint8_t pointer.
+ */
+#define VDP_YCBCR_FORMAT_P016           ((VdpYCbCrFormat)9)
+ /**
+  * \hideinitializer
+  * \brief The "Y_U_V_444_16" YCbCr surface format.
+  *
+  * This format has three planes, a Y plane, a V plane, and a U
+  * plane.
+  *
+  * Each of the planes is an array of two byte-sized components.
+  *
+  * Applications should access this data via a uint16_t pointer.
+  */
+ #define VDP_YCBCR_FORMAT_Y_U_V_444_16     ((VdpYCbCrFormat)11)
 
 /**
  * \brief  The set of all known RGB surface formats.
@@ -2578,6 +2681,10 @@ typedef uint32_t VdpDecoderProfile;
 #define VDP_DECODER_PROFILE_HEVC_MAIN_12                ((VdpDecoderProfile)103)
 /** \hideinitializer */
 #define VDP_DECODER_PROFILE_HEVC_MAIN_444               ((VdpDecoderProfile)104)
+/** \hideinitializer */
+#define VDP_DECODER_PROFILE_HEVC_MAIN_444_10            ((VdpDecoderProfile)105)
+/** \hideinitializer */
+#define VDP_DECODER_PROFILE_HEVC_MAIN_444_12            ((VdpDecoderProfile)106)
 
 /** \hideinitializer */
 #define VDP_DECODER_LEVEL_MPEG1_NA 0
@@ -3544,6 +3651,16 @@ typedef struct {
     int8_t cr_qp_adjustment[6];
 
 } VdpPictureInfoHEVC444;
+
+/**
+ * \brief Picture parameter information for HEVC FormatRangeExtensions picture.
+ *
+ * HEVC Main 444 Profile is part of Format Range Extensions profiles,
+ * Due to similarities between Format Range Extensions profiles, the picture
+ * parameter structure is re-used for Format Range Extensions profiles
+ * supported.
+ */
+typedef VdpPictureInfoHEVC444 VdpPictureInfoHEVCRangeExt;
 
 /**
  * \brief Decode a compressed field/frame and render the result
