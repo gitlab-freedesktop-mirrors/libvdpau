@@ -956,7 +956,7 @@ static void _vdp_cap_dump_picture_info(
                     (uint32_t)picture_info_hevc->RefPicSetLtCurr[i]
                 );
             }
-            fputs("}}", _vdp_cap_data.fp);
+            fputs("}}, ", _vdp_cap_data.fp);
             fprintf(
                 _vdp_cap_data.fp,
                 "%u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, {",
@@ -980,7 +980,6 @@ static void _vdp_cap_dump_picture_info(
                 (uint32_t)picture_info_hevc_rxt->log2SaoOffsetScaleLuma,
                 (uint32_t)picture_info_hevc_rxt->log2SaoOffsetScaleChroma
             );
-            fputs("}, {", _vdp_cap_data.fp);
             for (uint32_t i = 0; i < _VDP_TRACE_ARSIZE(picture_info_hevc_rxt->cb_qp_adjustment); ++i) {
                 fprintf(
                     _vdp_cap_data.fp,
@@ -1011,7 +1010,7 @@ static void _vdp_cap_dump_picture_info(
 
             fprintf(
                 _vdp_cap_data.fp,
-                "{%u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u {",
+                "{%u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u, {",
                 (uint32_t)picture_info_vp9->width,
                 (uint32_t)picture_info_vp9->height,
                 picture_info_vp9->lastReference,
@@ -1148,7 +1147,7 @@ static void _vdp_cap_dump_picture_info(
             fputs("}, ", _vdp_cap_data.fp);
             fprintf(
                 _vdp_cap_data.fp,
-                "%u, %u, {",
+                "%u, %u",
                 (uint32_t)picture_info_vp9->uncompressedHeaderSize,
                 (uint32_t)picture_info_vp9->compressedHeaderSize
             );
